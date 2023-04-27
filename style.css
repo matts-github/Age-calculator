@@ -50,6 +50,11 @@
     font-size: 0.5rem;
 }
 
+svg:hover {
+    cursor: pointer;
+    fill: #000;
+}
+
   @media (min-width: 772px) {
     .arrow-pos {
         top: 38px;
