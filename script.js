@@ -90,10 +90,49 @@ document.addEventListener('DOMContentLoaded', function () {
   input.addEventListener('keydown', handleKeyDown);
   inputMonth.addEventListener('keydown', handleKeyDown);
   inputYear.addEventListener('keydown', handleKeyDown);
+  svg.addEventListener('click', handleClick);
+
+  svg.addEventListener('click', age); // Add click event listener to SVG element
 });
 
 
 // Age calculation
+
+function age() {
+	var d1 = parseInt(document.getElementById('day').value);
+	var m1 = parseInt(document.getElementById('month').value);
+	var y1 = parseInt(document.getElementById('year').value);
+
+	var date = new Date();
+	var d2 = date.getDate();
+	var m2 = date.getMonth() + 1;
+	var y2 = date.getFullYear();
+	var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+	if (d1 > d2) {
+		d2 = d2 + month[m2 - 1];
+		m2 = m2 - 1;
+	}
+	if (m1 > m2) {
+		m2 = m2 + 12;
+		y2 = y2 - 1;
+	}
+	var d = d2 - d1;
+	var m = m2 - m1;
+	var y = y2 - y1;
+
+	document.getElementById('yearsold').innerHTML = y;
+	document.getElementById('monthsold').innerHTML = m;
+	document.getElementById('daysold').innerHTML = d;
+}
+
+
+
+const button = document.getElementById('clickme');
+
+button.addEventListener('click', () => {
+  checkInput();
+});
 
 // function age() {
 //   var d1 = parseInt(document.getElementById('day').value);

@@ -46,8 +46,8 @@
 						  </div>
 						</div>
 					</div>
-					<div class="arrow-pos">
-						<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#9966CC" class="bi bi-arrow-down-circle-fill col-md-6 position-relative" viewBox="0 0 16 16" onclick="age()">
+					<div class="arrow-pos" id="clickme">
+						<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#9966CC" class="bi bi-arrow-down-circle-fill col-md-6 position-relative" onclick="age()" viewBox="0 0 16 16">
 						<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3 a.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
 					</svg>
 				</div>
@@ -72,35 +72,7 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script>
-function age() {
-	var d1 = parseInt(document.getElementById('day').value);
-	var m1 = parseInt(document.getElementById('month').value);
-	var y1 = parseInt(document.getElementById('year').value);
 
-	var date = new Date();
-	var d2 = date.getDate();
-	var m2 = date.getMonth() + 1;
-	var y2 = date.getFullYear();
-	var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-	if (d1 > d2) {
-		d2 = d2 + month[m2 - 1];
-		m2 = m2 - 1;
-	}
-	if (m1 > m2) {
-		m2 = m2 + 12;
-		y2 = y2 - 1;
-	}
-	var d = d2 - d1;
-	var m = m2 - m1;
-	var y = y2 - y1;
-
-	document.getElementById('yearsold').innerHTML = y;
-	document.getElementById('monthsold').innerHTML = m;
-	document.getElementById('daysold').innerHTML = d;
-}
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
