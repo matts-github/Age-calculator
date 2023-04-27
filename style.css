@@ -1,0 +1,72 @@
+.background{
+    background-color: hsl(0, 0%, 94%);
+}
+
+.custom-border-radius {
+    border-radius: 1.625rem 1.625rem 13.125rem
+}
+
+.border {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.purple {
+    color: #9966CC;
+}
+
+.space {
+    letter-spacing: 0.25rem;
+}
+
+.header {
+    font-family: poppins;
+    color: hsl(0, 1%, 44%);
+}
+
+.titles {
+    font-size: 1rem;
+}
+
+.position-card {
+    background-color: white;
+    height: 32.875rem;
+    width: 20.75rem;
+}
+  
+.arrow-pos {
+    position: relative;
+    top: 35px;
+}
+
+.dates {
+    font-family: poppins;
+    font-weight: 800i;
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.e-style {
+    font-size: 0.5rem;
+}
+
+  @media (min-width: 772px) {
+    .arrow-pos {
+        top: 38px;
+        margin-right: -606px;
+    }
+
+    .dates {
+        font-family: poppins;
+        font-weight: 800i;
+        font-size: 4.75rem;
+    }
+
+    .position-card {
+        background-color: white;
+        height: 36.875rem;
+        width: 68.75rem;
+    }
+
+}
+  

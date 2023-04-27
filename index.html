@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Center Bootstrap container vertically</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+	<style type="text/css">
+		body {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+  	<link rel="stylesheet" href="style.css">
+  	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap" rel="stylesheet">
+</head>
+<body class="background">
+	<div class="container">
+		<div class="row">
+			<div class="col-11 col-md-8 text-center align-items-center ms-auto me-auto mx-md-auto custom-border-radius position-card">
+				<div class="col-md-6 offset-md-1 mt-3 d-flex border-bottom p-md-3 position-relative flex-column header mt-5 pb-md-1">
+					<div class="input-group">
+						<div class="row">
+						  <div class="col-4 col-md-3">
+							<div class="text-start col-md-12">
+							<label for="day" class="text-left space titles">DAY</label>
+							<input type="text" class="form-control p-2 fs-4" id="day" placeholder="DD">
+							<div class="text-danger e-style mt-2" id="error-message"></div>
+						</div>
+						  </div>
+						  <div class="col-4 col-md-3">
+							<div class="text-start col-md-12">
+							<label for="month" class="text-left space titles">MONTH</label>
+							<input type="text" class="form-control p-2 fs-4" id="month" placeholder="MM">
+							<div class="text-danger e-style mt-2" id="error-month"></div>
+							</div>
+						  </div>
+						  <div class="col-4 col-md-3">
+							<div class="text-start col-md-12">
+							<label for="year" class="text-left space titles">YEAR</label>
+							<input type="text" class="form-control p-2 fs-4" id="year" placeholder="YYYY">
+							<div class="text-danger e-style mt-2" id="error-year"></div>
+							</div>
+						  </div>
+						</div>
+					</div>
+					<div class="arrow-pos">
+						<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#9966CC" class="bi bi-arrow-down-circle-fill col-md-6 position-relative" viewBox="0 0 16 16" onclick="age()">
+						<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3 a.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+					</svg>
+				</div>
+			</div>
+			
+			<div class="row mt-5 position-relative">
+				<div class="col-md-6 fw-bold fst-italic dates d-flex align-items-start flex-column offset-md-1 offset-3">
+					<div>
+						<span class="purple d-none d-md-inline-block">Years: </span><div class="age d-inline-block" id="yearsold">--</div>
+					</div>
+					<div>
+						<span class="purple d-none d-md-inline-block">Months: </span><div class="age d-inline-block" id="monthsold">--</div>
+					</div>
+					<div>
+						<span class="purple d-none d-md-inline-block">Days: </span><div class="age d-inline-block" id="daysold">--</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script>
+function age() {
+	var d1 = parseInt(document.getElementById('day').value);
+	var m1 = parseInt(document.getElementById('month').value);
+	var y1 = parseInt(document.getElementById('year').value);
+
+	var date = new Date();
+	var d2 = date.getDate();
+	var m2 = date.getMonth() + 1;
+	var y2 = date.getFullYear();
+	var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+	if (d1 > d2) {
+		d2 = d2 + month[m2 - 1];
+		m2 = m2 - 1;
+	}
+	if (m1 > m2) {
+		m2 = m2 + 12;
+		y2 = y2 - 1;
+	}
+	var d = d2 - d1;
+	var m = m2 - m1;
+	var y = y2 - y1;
+
+	document.getElementById('yearsold').innerHTML = y;
+	document.getElementById('monthsold').innerHTML = m;
+	document.getElementById('daysold').innerHTML = d;
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
